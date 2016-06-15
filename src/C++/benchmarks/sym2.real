@@ -1,0 +1,14 @@
+.version 1.0 symmetric circuit with 2 lines
+.numvars 2
+.variables x1 x2
+.inputs x1 x2
+.outputs x1' x2'
+.constants ----
+.garbage ----
+.begin
+H1 x1
+
+T2 x1 x2
+
+H1 x1
+.end

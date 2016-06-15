@@ -1,0 +1,49 @@
+.version 1.0 quantum Fourier transform for n=6
+.numvars 6
+.variables j1 j2 j3 j4 j5 j6
+.inputs j1 j2 j3 j4 j5 j6
+.outputs k1 k2 k3 k4 k5 k6
+.constants ------
+.garbage ------
+.begin
+
+H1 j1
+S2 j2 j1
+Q2:4 j3 j1
+Q2:8 j4 j1
+Q2:16 j5 j1
+Q2:32 j6 j1
+
+H1 j2
+S2 j3 j2
+Q2:4 j4 j2
+Q2:8 j5 j2
+Q2:16 j6 j2
+
+H1 j3
+S2 j4 j3
+Q2:4 j5 j3
+Q2:8 j6 j3
+
+H1 j4
+S2 j5 j4
+Q2:4 j6 j4
+
+H1 j5
+S2 j6 j5
+
+H1 j6
+
+T2 j1 j6
+T2 j6 j1 
+T2 j1 j6
+
+T2 j2 j5
+T2 j5 j2
+T2 j2 j5
+
+T2 j3 j4
+T2 j4 j3
+T2 j3 j4
+
+.end

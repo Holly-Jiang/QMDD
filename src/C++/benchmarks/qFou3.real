@@ -1,0 +1,21 @@
+.version 1.0 quantum Fourier transform for n=3
+.numvars 3
+.variables j1 j2 j3
+.inputs j1 j2 j3
+.outputs k1 k2 k3
+.constants ---
+.garbage ---
+.begin
+H1 j1
+S2 j2 j1
+Q2:4 j3 j1
+
+H1 j2
+S2 j3 j2
+
+H1 j3
+
+T2 j1 j3
+T2 j3 j1 
+T2 j1 j3
+.end

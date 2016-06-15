@@ -1,0 +1,64 @@
+.version 1.0 - 
+.numvars 17
+.variables A B C D E F G H I J K L M N O P Q
+#.variables A B I J K C D L M N E F O P Q G H
+.inputs A B C D E F G H I J K L M N O P Q
+.outputs A B C D E F G H I J K L M N O P Q
+.constants -------------
+.garbage ---------
+.begin
+
+H1 A
+H1 B
+H1 C
+H1 D
+H1 E
+H1 F
+H1 G
+H1 H
+
+T2 H L
+T2 H M
+T2 H N
+T2 H O
+T2 H P
+T2 H Q
+
+T2 G I
+T2 G J
+T2 G K
+T2 G L
+T2 G M
+T2 G N
+
+Z2 F P
+Z2 F Q
+
+Z2 E O
+Z2 E P
+
+Z2 D M
+Z2 D N
+
+Z2 C L
+Z2 C M
+
+Z2 B J
+Z2 B K
+
+Z2 A I
+Z2 A J
+
+H1 A
+H1 B
+H1 C
+H1 D
+H1 E
+H1 F
+H1 G
+H1 H
+.end
+
+
+
+

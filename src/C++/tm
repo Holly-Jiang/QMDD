@@ -1,0 +1,4 @@
+rm -f test3 test7 test9
+g++ -O2 -o test3 test3.cc libQMDD.a
+#g++ -O2 -o test7 test7.cc libQMDD.a -lpqxx
+#g++ -O2 -o test9 test9.cc libQMDD.a -lpqxx

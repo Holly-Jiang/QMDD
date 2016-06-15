@@ -1,0 +1,77 @@
+.version 1.0
+.numvars 2
+.variables q1 q2
+.inputs q1 q2
+.outputs x0' x1'
+.constants --
+.garbage --
+.begin
+#T1 x0
+#H1 x0
+#H1 x0
+#S1 x0
+#Z2 x0 x1
+#T1 x1
+V q1 q2
+V+ q1 q2
+
+#CNOT_SC
+RY1:2 q2
+Z2 q1 q2
+RY1:-2 q2
+.end
+#CV_SC
+RZ:1 q1 
+RY:4 q2 
+RX:7 q2 
+Z2 q1 q2
+RX:1 q2
+Z2 q1 q2
+RY:4 q2
+
+#CV_QD
+RZ:5 q1
+RX:1 q2
+Z2 q1 q2
+RX:3 q2
+Z2 q1 q2
+RX:4 q2
+
+#CV_NP
+RZ:5 q1 
+RY:6 q2 
+RZ:5 q2 
+T2 q1 q2
+RZ:3 q2 
+T2 q1 q2
+RY:2 q2 
+V+ q1 q2
+
+#CNOT_IT
+RZ:6 q2
+RZ:6 q1
+
+RX:6 q2
+
+T2 q2 q1
+S1 q1
+T2 q2 q1
+
+Ry:2 q2
+
+
+#CV_IT
+RZ:1 q1
+RX:1 q2
+
+T2 q2 q1
+S1 q1
+T2 q2 q1
+
+RY:3 q2
+
+T2 q2 q1
+S1 q1
+T2 q2 q1
+
+RY:4 q2

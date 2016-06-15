@@ -1,0 +1,92 @@
+## A C/C++ Package for Quantum Multiple-Valued Decision Diagrams (QMDD package)
+Copyright (c) 2016 by Philipp Niemann, Robert Wille, D. Michael Miller, 
+Mitchell A. Thornton, and Rolf Drechsler
+University of Bremen, Germany
+http://www.informatik.uni-bremen.de/agra/eng/qmdd.php
+
+The software is intellectual property of the above mentioned authors. You 
+can freely redistribute this software for non-commercial purposes as long as 
+it includes a reference to its orign.
+
+Use at your own risk!
+In no event shall the authors be liable for any damages whatsoever (including 
+without limitation damages for loss of business profits, business interruption, 
+loss of business information, or any other pecuniary loss) arising from the use 
+of or inability to use the software, even if the authors have been advised of 
+the possibility of such damages.
+
+If you have any questions feel free to contact us using
+qmdd@informatik.uni-bremen.de
+
+## Overview
+
+Quantum mechanical phenomena such as phase shifts, superposition, and 
+entanglement show promise in use for computation. Suitable technologies for the 
+modeling and design of quantum computers and other information processing 
+techniques that exploit quantum mechanical principles are in the range of 
+vision. Quantum algorithms that significantly speed up the process of solving 
+several important computation problems have been proposed in the past. The most 
+common representation of quantum mechanical phenomena are transformation 
+matrices. However, the transformation matrices grow exponentially with the size 
+of a quantum system and, thus, pose significant challenges for efficient 
+representation and manipulation of quantum functionality. In order to address 
+this problem, first approaches for the representation of quantum systems in 
+terms of decision diagrams have been proposed. One very promising approach is 
+given by Quantum Multiple-Valued Decision Diagrams (QMDDs) which are able to 
+efficiently represent transformation matrices and also inherently support 
+multiple-valued basis states offered by many physical quantum systems. The 
+present QMDD package provides (a) a library of core routines for the 
+construction and manipulation of QMDDs (based on the QMDD package v3.1 by D. 
+Michael Miller) and (b) a few applications built on top of this library.
+
+## Usage
+
+=================== System Requirements ====================
+
+The package has been tested under Linux (Fedora 22, 64-bit) and should be 
+compatible with any current version of g++/make.
+In order to enable visualization of QMDDs, the GraphViz package is required.
+  
+=================== Build and Run ====================
+
+To build the QMDD core library and applications, simply call 'make'. 
+
+Currently, there are three applications build on top of the QMDD core.
+* (1)   A tool 'qmdd_equivalence_check' which employs QMDDs to check the 
+        equivalence of two circuits given in .real-format.
+	To run the program, call: './qmdd_equivalence_check [CIRCUIT1 CIRCUIT2]'
+	
+* (2)   A tool 'qmdd_minimize' which employs heuristic variable reordering 
+	(sifting) to minimize the size of a QMDD build from a .real-file
+	circuit description.
+	To run the program, call: './qmdd_minimize [CIRCUIT]'
+	
+* (3) 	A command-line interface 'qmdd_cmd' which allows you to build QMDDs 
+	from .real-file circuit descriptions (see www.revlib.org for details on
+	the format), modify them (e.g. add gates, perform variable reordering),
+	and output them (e.g., print the transformation matrix or output a 
+	.dot-file [requires GraphViz])  
+	To run the program, call: './qmdd_cmd [CIRCUIT]'
+	For a detailed list of commands, see 'manual.txt' or type 'help' within
+	the program.
+	
+## Reference
+
+If you use the QMDD package for your research, we would be thankful if you 
+referred to it by citing the following publication: 
+
+@article{journals/tcad/NiemannWMTD16,
+  author    = {Philipp Niemann and
+               Robert Wille and
+               D. Michael Miller and
+               Mitchell A. Thornton and
+               Rolf Drechsler},
+  title     = {QMDDs: Efficient Quantum Function Representation and Manipulation},
+  journal   = {{IEEE} Trans. on {CAD} of Integrated Circuits and Systems},
+  volume    = {35},
+  number    = {1},
+  pages     = {86--99},
+  year      = {2016},
+  url       = {http://dx.doi.org/10.1109/TCAD.2015.2459034},
+  doi       = {10.1109/TCAD.2015.2459034},
+}

@@ -1,0 +1,67 @@
+=================== Commands (available in 'qmdd_cmd') =========================
+
+General Commands:
+	* - help		print the list of available commands
+	* - exit / quit		exits the program
+
+Modify Circuit (add gates 'on the fly'):
+	* To add a specific gate, type in
+			Ln c1 c2 ... cn t
+	where
+		L	type of gate, e.g. 'T' for Toffoli, 'H' for Hadamard,
+			'V' for controlled V
+		n	number of connected lines (controls + target)
+		c1,...	labels of control lines (add '-' for a negative control)
+		t	label of target line
+
+		Note: n is omitted for V/V+ gates and implicitly taken as '2', 
+		      e.g. V x0 x1, V+ x1 x0
+
+	* - undo		repeat most recently applied gate 
+	* - chdir		change, whether gates are to be applied at the 
+				beginning/end of the circuit
+
+Generate output:
+	 * - show		produces DOT-file and makes system-call to 
+				produce SVG-file
+	 * - stat		print statistics of the QMDD package
+	 * - print		print QMDD in matrix format
+	 * - printnodes		print QMDD in nodelist format
+	 * - ashow		en/disable automatic SVG-export
+	 * - active		print number of currently active QMDD nodes
+	 * - weight		print weight of QMDD root edge
+
+Reordering operations:
+	 * - sift		standard sifting routine 
+	 			[ heuristic reordering w.r.t. the cost function
+	 			QMDDreorder.cpp::siftingCostFunction() ]
+	 * - presift		export QMDD to file
+	 * - compsift		compare current QMDD to the presift-file
+	 * - doSJT		exhaustive search for best variable ordering 
+	 			(very slow!)
+	 * - reorder		reorder back to initial variable order
+	 * - moveDIR VARIABLE	moves a variable up/down (DIR=up,down) or to the
+	 			top/bottom (DIR=top,bottom)
+
+Note: There are a few more operations available, but these should be sufficient.
+
+
+=================== Graphical Export (available in 'qmdd_cmd') =================
+
+The command 'show' dumps the current QMDD to a .dot-file from which a vector 
+graphic (SVG) is rendered afterwards (requires the Graphviz package).
+
+Non-terminal nodes (large circles) are labelled by the corresponding 
+variable and are highlighted in 
+  * red, if the node represents an identity (sub-)matrix, and
+  * green, if the node represents a symmetric, but not an identity (sub-)matrix.
+  
+The upper part of edges is coloured according to the respective position of the
+corresponding sub-matrix:
+  * green = top-left
+  * blue  = top-right
+  * red   = bottom-left
+  * gold  = bottom-right
+Edge weights are annoted in parentheses, but are only shown if they are
+different from '1'. Edges pointing to the terminal node with weight 0 (0-edges)
+are indicated by stubs ending in a small red dot. 

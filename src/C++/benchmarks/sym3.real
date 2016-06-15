@@ -1,0 +1,16 @@
+.version 1.0 symmetric circuit with 3 lines
+.numvars 3
+.variables x1 x2 x3
+.inputs x1 x2 x3
+.outputs x1' x2' x3'
+.constants ----
+.garbage ----
+.begin
+H1 x1
+H1 x2
+
+T3 x1 x2 x3
+
+H1 x1
+H1 x2
+.end
